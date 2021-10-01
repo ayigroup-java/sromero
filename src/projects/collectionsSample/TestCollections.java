@@ -50,6 +50,7 @@ public class TestCollections {
 
         imprimirCollection(miMapa.keySet());
         imprimirCollection(miMapa.values());
+        
     }
 
     static void imprimirCollection(Collection collection) {
