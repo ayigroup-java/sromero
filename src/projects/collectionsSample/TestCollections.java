@@ -7,18 +7,20 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class TestCollections {
 
     public static void main(String[] args) {
-        hashSetImp();
+        treeMapImp();
     }
 
     static void treeSetImp() {
@@ -37,17 +39,20 @@ public class TestCollections {
     static void hashSetImp() {
         HashSet miSet = new HashSet(5);
 
-        miSet.add(4L);
-        miSet.add("5");
-        miSet.add("1");
-        miSet.add("z");
-        miSet.add("1");
-        miSet.add("2");
-        miSet.add("3");
-        miSet.add("b");
-        miSet.add("a");
+        //ojo con concurrencia en multihilos
+        Collection miSetNotCollide = Collections.synchronizedSet(new HashSet<>(5));
 
-        imprimirCollection(miSet);
+        miSetNotCollide.add(4L);
+        miSetNotCollide.add("5");
+        miSetNotCollide.add("1");
+        miSetNotCollide.add("z");
+        miSetNotCollide.add("1");
+        miSetNotCollide.add("2");
+        miSetNotCollide.add("3");
+        miSetNotCollide.add("b");
+        miSetNotCollide.add("a");
+
+        imprimirCollection(miSetNotCollide);
     }
 
     static void arrayListImp() {
@@ -62,6 +67,11 @@ public class TestCollections {
     }
 
     static void linkedList() {
+
+        final List miList = List.of("1","2","3");
+
+        final List llList = new LinkedList();
+
         LinkedList<String> ll = new LinkedList<String>();
 
         System.out.println("Initial list of elements: " + ll);
@@ -89,6 +99,9 @@ public class TestCollections {
         System.out.println("After invoking addFirst(E e) method: " + ll);
         ll.addLast("Harsh");
         System.out.println("After invoking addLast(E e) method: " + ll);
+
+        //avoid thread collision.
+        List list = Collections.synchronizedList(new LinkedList());
     }
 
     static void listImp() {
@@ -132,14 +145,17 @@ public class TestCollections {
         System.out.println("Printing List: "+fruitList);
     }
 
-    static void mapImp() {
+    static void hashMapImp() {
         Map miMapa = new HashMap();
 
+        final Map<Integer, List> hasMap = Collections.synchronizedMap(new HashMap<>());
+
         miMapa.put("1", "santi");
-        miMapa.put("2", "romero");
-        miMapa.put("3", "santi");
+        miMapa.put("3", "romero");
+        miMapa.put("2", "santi");
 
         Set set = miMapa.entrySet();
+
         Iterator itr=set.iterator();
         while(itr.hasNext()){
             Map.Entry entry=(Map.Entry)itr.next();
@@ -148,6 +164,34 @@ public class TestCollections {
 
         imprimirCollection(miMapa.keySet());
         imprimirCollection(miMapa.values());
+
+    }
+
+    static void treeMapImp() {
+        TreeMap<Integer,String> map=new TreeMap<Integer,String>();
+        map.put(101,"Vijay");
+        map.put(103,"Rahul");
+        map.put(100,"Amit");
+        map.put(102,"Ravi");
+
+
+        for(Map.Entry m:map.entrySet()){
+            System.out.println(m.getKey()+" "+m.getValue());
+        }
+    }
+
+    static void linkedMap() {
+        LinkedHashMap<Integer, String> map = new LinkedHashMap<Integer, String>();
+        map.put(103,"Sromero");
+        map.put(100,"Amit");
+        map.put(101,"Vijay");
+        map.put(102,"Rahul");
+        //Fetching key
+        System.out.println("Keys: "+map.keySet());
+        //Fetching value
+        System.out.println("Values: "+map.values());
+        //Fetching key-value pair
+        System.out.println("Key-Value pairs: "+map.entrySet());
 
     }
 
