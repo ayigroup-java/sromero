@@ -1,0 +1,212 @@
+JAVA
+Clase 1 2
+¿Qué es Java?
+Características y organización
+Instalación y configuración de ambiente de desarrollo
+Compilar y ejecutar programas Java en NetBeans
+Laboratorio
+Variables
+Tipos de variables primitivas y String
+Operadores
+Estructuras Condicionales y de Repetición
+Comentarios
+Arreglos
+Laboratorio
+
+Clase 3 4
+Clases
+Objetos
+Atributos
+Objetos dentro de Objetos
+Métodos
+Método main
+Constructores
+Constructores con parámetros
+Variables de instancia y de clase
+Laboratorio
+
+Clase 5 6
+Encapsulamiento
+Herencia
+Qué es el polimorfismo y su aplicación
+Sobreescritura en Java y su uso
+Sobrecarga de Métodos
+Modificador static
+Laboratorio
+
+Clase 7
+Casteo
+Clase Abstracta
+Interfaces
+Clase Abstracta vs Interfaces
+Paquetes
+Keyword Final
+Accesibilidad
+Wrappers
+Comparación entre Objetos
+Alcance de Variables (Scope)
+Uso de bloques estáticos y no estáticos
+Laboratorio
+
+Clase 8
+Identificando el tipo de objeto con el operador instanceof
+La importancia y uso del operador this
+Excepciones
+Excepciones Unchecked
+Excepciones Checked
+Lanzar y capturar Excepciones
+Bloque Finally
+Creación de Excepciones propias
+Laboratorio
+
+Clase 9
+Interfaz Collection
+Interfaz Set: Clases HashSet TreeSet LinkedHashSet Interfaz Map: Clases HashMap TreeMap LinkedHashMap Interfaz List: Clases ArrayList LinkedList
+Generics
+Comparable y Comparator
+Laboratorio
+
+Clase 10
+Introducción a Spring Framework y la Universidad Spring
+Configuración de Spring con Spring Boot y Apache Netbeans
+Thymeleaf y Spring MVC
+Spring Data, Hibernate y JPA
+
+Spring Boot + GIT
+Clase 19 a 30
+Introduccion a Maven
+El archivo POM
+Artifactory
+Settings.xml
+Práctica Maven
+Introduccion a Git
+Práctica Git
+
+Que es Spring?
+Que es Spring Boot?
+Por qué utilizar Lombok
+Anotaciones
+@SpringBootApplication
+@EnableAutoconfiguration
+@Component
+@ComponentScan
+@Repository
+@Service
+@Resource
+@Inject
+@Autowire
+@Qualifier
+@Configuration
+@Transactional
+@Bean
+@Controller
+@RestController
+@Required
+@Value
+@PropertySource
+
+JPA
+Configuración Maven
+Objetos en JPA - Entities
+Objetos y relaciones
+ORM
+Modelo de projects.mainProject.dominio
+Modelado de projects.mainProject.dominio
+Mapeo de entities
+Mapeo de campos
+Especificacion de PK
+Relaciones entre entidades
+
+Relacion One-to-One
+Relacion One-to-Many
+Relacion Many-to-One
+Relacion Many-to-Many
+Clausulas
+Fetching
+EntityManager
+Configuracion del EntityManager
+Repositorios
+JPARepository
+Métodos para persistencia
+
+Manejo de Excepciones
+Codigos de status HTTP
+Respuestas básicas
+Manejo por defecto
+ResponseErrorHandler
+Cliente REST
+RestTemplate
+○ get
+○ post
+Práctica de Excepciones y REST
+
+
+Encapsulamiento:
+getter y setter
+
+Contexto Statico:
+Contexto Estatico = carga de clases
+Contexto Dinamico = carga de objetos
+
+private int id;
+private static int contadorPersonas;
+
+public Persona(String name) {
+    this.name = name;
+    Persona.contadorPersonas++;
+    this.id = Persona.contadorPersonas;
+}
+
+**__this no se puede utilizar en un contexto estatico__**
+
+Herencia:
+Mecanismo de accesibilidad propio de la herencia: protected String unionDatos;
+
+atributos private cuando no tienen mas subclases
+atributos protected cuando van a tener mas subclases
+
+###########
+
+@Override
+    public void defineOrganizacón() {
+        System.out.println("Corresponde a un gremio de Comerciantes...");
+    }
+
+Este termino se utiliza en la POO para "referirse a la propiedad por
+la que es posible enviar mensajes sintácticamente iguales a objetos de tipos distintos"
+
+Lo primero que nos debe de llamar la atención al ver este código es que utilizamos dos
+veces la palabra reservada "abstract".
+Esta palabra nos indica que la clase "Persona" es una clase abstracta y
+ las clases abstractas no se pueden instanciar, por tanto nunca podremos hacer un "new Persona()".
+Otra cosa que vemos es que también utilizamos la palabra reservada abstract en un método
+(en el método defineOrganizacón). Esto quiere decir que todas las clases hijas
+de la clase "Persona" tienen que tener implementado ese método obligatoriamente.
+Por tanto con esto que se acaba de contar y diciendo que la palabra "Polimorfismo"
+significa "muchas formas", podemos deducir que la clase "Persona"
+es una clase que puede adoptar diferentes formas y en este ejemplo puede adoptar
+las formas de "Alumno", "Comerciante"
+
+Y ahora si hemos dicho que hemos definido en la clase padre un método abstracto que es
+obligatorio implementar en las clases hijas ¿Como lo hacemos?. 
+Bueno vamos por partes. Una cosa muy buena que tiene la herencia y el polimorfismo, es que las clases hijas no solo heredan los métodos (o la implementación de los métodos) de las clases padre, sino que las clases hijas se pueden especializar.  Esto significa que una clase hija puede "redefinir" los métodos de su clase padre; es decir, que se puede volver a escribir ese método y de ahi la especialización. Para ello vamos a ver la implementación de las clases hijas:
+
+
+En JAVA el término polimorfismo también suele definirse como ‘Sobrecarga de parámetros’,
+El polimorfismo, que se refiere a la idea de "tener muchas formas",
+ocurre cuando hay una jerarquía de clases relacionadas entre sí a través de la herencia y
+este es un buen ejemplo.
+
+Sobrecarga: El más conocido y se aplica cuando existen funciones con el mismo nombre en clases que
+son completamente independientes una de la otra.
+
+Paramétrico: Existen funciones con el mismo nombre pero se usan diferentes parámetros (nombre o tipo).
+Se selecciona el método dependiendo del tipo de datos que se envíe.
+Inclusión: Es cuando se puede llamar a un método sin tener que conocer su tipo,
+así no se toma en cuenta los detalles de las clases especializadas, utilizando una interfaz común.
+
+Polimorfismo paramétrico
+Polimorfismo de inclusión
+
+Diferencias entre polimorfismo y sobrecarga
+
