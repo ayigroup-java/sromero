@@ -1,10 +1,21 @@
 package projects.genericsSample.exercises;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Exercise {
 
     public static void main( String args[] ) {
+        executeExercise();
+    }
+
+    static void executeExercise() {
         Printer myPrinter = new Printer();
 
         Integer[] intArray = { 1, 2, 3 };
@@ -28,11 +39,9 @@ public class Exercise {
 
 class Printer
 {
-    public void print(Integer[] value) {
-        System.out.println(value);
-    }
-
-    public void print(String[] value) {
-        System.out.println(value);
+    public <E> void print(E a[]) {
+        for (E elemento : a) {
+            System.out.println(elemento);
+        }
     }
 }
