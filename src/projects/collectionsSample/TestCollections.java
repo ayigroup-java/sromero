@@ -15,12 +15,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 
 public class TestCollections {
 
     public static void main(String[] args) {
-        treeMapImp();
+        hashSetImp();
     }
 
     static void treeSetImp() {
@@ -42,17 +41,11 @@ public class TestCollections {
         //ojo con concurrencia en multihilos
         Collection miSetNotCollide = Collections.synchronizedSet(new HashSet<>(5));
 
-        miSetNotCollide.add(4L);
-        miSetNotCollide.add("5");
-        miSetNotCollide.add("1");
-        miSetNotCollide.add("z");
-        miSetNotCollide.add("1");
-        miSetNotCollide.add("2");
-        miSetNotCollide.add("3");
-        miSetNotCollide.add("b");
-        miSetNotCollide.add("a");
+        miSet.add(9L);
+        miSet.add(200);
+        miSet.add("1");
 
-        imprimirCollection(miSetNotCollide);
+        imprimirCollection(miSet);
     }
 
     static void arrayListImp() {
