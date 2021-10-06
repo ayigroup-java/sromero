@@ -1,4 +1,4 @@
-package projects.comparable;
+package projects.comparableSample;
 
 import java.util.Arrays;
 import java.util.Collections;
