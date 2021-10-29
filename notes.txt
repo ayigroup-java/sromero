@@ -1,0 +1,6 @@
+One-to-One:
+pk -> fk
+cuenta.empleado.fk -> empleado.pk
+
+Many-to-One:
+fk -> pk
